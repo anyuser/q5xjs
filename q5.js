@@ -854,7 +854,7 @@ function Q5(scope){
       while (x < 0){
         x += Math.PI*2;
       }
-      while (x >= Math.PI){
+      while (x > Math.PI*2){
         x -= Math.PI*2;
       }
       return x;
@@ -866,6 +866,8 @@ function Q5(scope){
       }
       let lo = norm2PI(start);
       let hi = norm2PI(stop);
+      if(hi <= lo + 0.0001)
+        hi += Math.PI*2;
       ctx.beginPath();
       for (let i = 0; i < detail+1; i++){
         let t = i/detail;
